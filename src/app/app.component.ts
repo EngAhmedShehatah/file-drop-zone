@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'file-drop-zone';
+  allFiles: File[] = [];
+
+  constructor() {}
+
+  droppedFiles(allFiles: File[]): void {
+    const filesAmount = allFiles.length;
+    for (let i = 0; i < filesAmount; i++) {
+      const file = allFiles[i];
+      this.allFiles.push(file);
+    }
+  }
 }
